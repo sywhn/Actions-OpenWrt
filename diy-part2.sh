@@ -11,4 +11,13 @@
 #
 
 # Modify default IP
-sed -i 's/192.168.1.1/192.168.5.12/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.5.11/g' package/base-files/files/bin/config_generate
+
+##FQ全部调到VPN菜单
+sed -i 's/services/vpn/g' package/feeds/helloworld/luci-app-ssr-plus/luasrc/controller/*.lua
+sed -i 's/services/vpn/g' package/feeds/helloworld/luci-app-ssr-plus/luasrc/model/cbi/shadowsocksr/*.lua
+sed -i 's/services/vpn/g' package/feeds/helloworld/luci-app-ssr-plus/luasrc/view/shadowsocksr/*.htm
+
+##更改主机名
+sed -i "s/hostname='.*'/hostname='David's OpenWrt'/g" package/base-files/files/bin/config_generate
+
